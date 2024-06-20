@@ -1,36 +1,45 @@
 import { useState } from "react";
-import { Chris, Dave, John } from "./Persons";
+// import Dummy from "./Dummy";
 
-const ContactAdder = () => {
-  const [name, setName] = useState("John");
-
+const ContactAdder = (props) => {
+  const [name, setName] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [location, setLocation] = useState("");
   const onClickHandler = () => {
-    setName("Dave");
-    console.log("Clicked!");
+    const contactData = { name, number: mobile, location };
+    props.onContactAdded(contactData);
   };
 
-  const onHoverHandler = () => {
-    setName("Chris");
-    console.log("Clicked!");
-  };
+  // const dummyClickHandler = () => {
+  //   props.childFunction();
+  // };
 
-  let resultsCard;
-
-  if (name === "Dave") {
-    resultsCard = <Dave />;
-  } else if (name === "Chris") {
-    resultsCard = <Chris />;
-  } else if (name === "John") {
-    resultsCard = <John />;
-  }
   return (
     <>
-      Contact Adder:
-      <button onClick={onClickHandler} onMouseOver={onHoverHandler}>
-        Click Me!
-      </button>
-      {/* My name is {name} {name === "Shyam" ? "I am Dad." : "I am son"} */}
-      My name is {name} {resultsCard}
+      <div className="simpleAdder">
+        Contact Adder:
+        <input
+          type="text"
+          value={name}
+          placeholder="Contact Name"
+          onChange={(e) => setName(e.target.value)}
+        ></input>
+        <input
+          type="text"
+          value={mobile}
+          placeholder="Mobile"
+          onChange={(e) => setMobile(e.target.value)}
+        ></input>
+        <input
+          type="text"
+          value={location}
+          placeholder="Contact Location"
+          onChange={(e) => setLocation(e.target.value)}
+        ></input>
+        <br />
+        <button onClick={onClickHandler}>Click Me!</button>
+      </div>
+      {/* <Dummy onDummyClick={dummyClickHandler} /> */}
     </>
   );
 };
