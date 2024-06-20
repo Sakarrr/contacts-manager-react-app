@@ -10,6 +10,19 @@ const ContactAdder = (props) => {
     props.onContactAdded(contactData);
   };
 
+  // const saveData = () => {
+  //   localStorage.setItem("name", "xyz");
+  // };
+
+  // const getData = () => {
+  //   const data = localStorage.getItem("name");
+  //   console.log(data);
+  // };
+
+  // const clearData = () => {
+  //   localStorage.removeItem("name");
+  // };
+
   // const dummyClickHandler = () => {
   //   props.childFunction();
   // };
@@ -38,6 +51,9 @@ const ContactAdder = (props) => {
         ></input>
         <br />
         <button onClick={onClickHandler}>Click Me!</button>
+        {/* <button onClick={saveData}>Save data</button>
+        <button onClick={getData}>Get data</button>
+        <button onClick={clearData}>Clear data</button> */}
       </div>
       {/* <Dummy onDummyClick={dummyClickHandler} /> */}
     </>

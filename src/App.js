@@ -1,18 +1,14 @@
+import { useState } from "react";
 import Contact from "./components/Contact";
 import ContactAdder from "./components/ContactAdder";
 import "./styles/style.css";
 
 const App = () => {
-  const contacts = [
-    { name: "John", number: "987654312", location: "Kathmandu" },
-    { name: "Dave", number: "9812345678", location: "Pokhara" },
-    { name: "Chris", number: "976512448", location: "Jhapa" },
-  ];
+  const [contacts, setContacts] = useState([]);
 
   // Child to parent communication
   const addContactData = (contactData) => {
-    console.log(contactData);
-    contacts.push(contactData);
+    setContacts([contactData, ...contacts]);
   };
 
   // const childFunctionHandler = () => {
